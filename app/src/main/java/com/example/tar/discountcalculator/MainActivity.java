@@ -10,7 +10,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     EditText priceEditText, discountEditText, discountSumEditTextt, priceSum;
-    Button checkButton,clearButton;
+    Button checkButton, clearButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,9 +31,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        double price,discount,sumPrice,sumDiscount;
-        if(v==checkButton) {
-            if(priceEditText.getText().toString()!=""&&discountEditText.getText().toString()!="") {
+        double price, discount, sumPrice, sumDiscount;
+        if (v == checkButton) {
+            if (!priceEditText.getText().toString().equalsIgnoreCase("") && !discountEditText.getText().toString().equalsIgnoreCase("")) {
                 price = Double.parseDouble(priceEditText.getText().toString());
                 discount = Double.parseDouble(discountEditText.getText().toString());
                 sumDiscount = (price * discount) / 100;
@@ -41,8 +41,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 priceSum.setText("" + sumPrice);
                 discountSumEditTextt.setText("" + sumDiscount);
-            }else Toast.makeText(this,"กรุณากรองข้อมูลให้ครบ",Toast.LENGTH_LONG).show();
-        }else if(v==clearButton){
+            } else Toast.makeText(this, "กรุณากรองข้อมูลให้ครบ", Toast.LENGTH_LONG).show();
+        } else if (v == clearButton) {
             priceEditText.setText("");
             discountEditText.setText("");
             discountSumEditTextt.setText("");
